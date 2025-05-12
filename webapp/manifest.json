@@ -1,0 +1,103 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+    	"id": "cu5.details",
+    	"i18n": "i18n/i18n.properties",
+	    "title": "{{appTitle}}",
+    	"description": "{{appDescription}}",
+    	"type": "application",
+			"applicationVersion": {
+				"version": "1.0.0"
+			},
+		"dataSources": {
+			"employeeDataService": {
+				"uri": "/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			},
+			"supplierDataService": {
+				"uri": "/V3/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+    "sap.ui": {
+      	"technology": "UI5",
+      	"deviceTypes": {
+      		"desktop": true,
+      		"tablet": true,
+      		"phone": true
+    	}
+  	},
+  	"sap.ui5": {
+		"dependencies": {
+			"minUI5Version": "1.108.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "cu5.details.i18n.i18n",
+					"supportedLocales": [""],
+					"fallbackLocale": ""
+				}
+			},
+     		"customerEntries": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "CustomerDetails.json"
+			},
+			"employeeData": {
+				"dataSource": "employeeDataService"
+			},
+			"supplierData":{
+				"dataSource" : "supplierDataService"
+			}
+		},
+		"rootView": {
+			"viewName": "cu5.details.view.AppStart",
+			"type": "XML",
+			"id": "app"
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"type": "View",
+				"viewType": "XML",
+				"path": "cu5.details.view",
+				"controlId": "app",
+				"controlAggregation": "pages"
+			},
+			"routes": [
+				{
+				"pattern": "",
+				"name": "home",
+				"target": "home"
+				},
+				{
+				"pattern": "employeePool",
+				"name": "employeePool",
+				"target": "employeePool"
+				}
+			],
+			"targets": {
+				"home": {
+					"id": "home",
+					"name": "HeaderPanel"
+				},
+				"employeePool": {
+					"id": "employeePool",
+					"name": "EmployeePool"
+				}
+			}
+    	}
+	}
+}

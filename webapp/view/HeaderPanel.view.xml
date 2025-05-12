@@ -1,0 +1,84 @@
+<mvc:View 
+   controllerName="cu5.details.controller.HeaderPanel"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:core="sap.ui.core">
+   <Page title="{i18n>pageHeader}">
+    <Panel 
+                    expandable="true"
+                    headerText="{i18n>pageTitle}"
+                    class="sapUiResponsiveMargin"
+                    width="auto">
+        <content>
+            <List
+                id="customerList"
+                class="sapUiResponsiveMargin"
+                width="auto"
+                items="{
+                    path : 'customerEntries>/Customers',
+                    sorter : {
+                        path : 'Status',
+                        group : true
+                         }
+                    }">
+                <items>
+                    <ObjectListItem
+                        icon="{ path: 'customerEntries>Status', formatter: '.statusText' }"
+                        title="{customerEntries>CustomerName}"
+                        type="Navigation"
+                        press=".onPress" >
+                        <firstStatus>
+                            <ObjectStatus
+                                text="{i18n>empProject} : {customerEntries>Project}"
+                                state="Success" />
+                        </firstStatus>
+                        <ObjectAttribute  text = "{i18n>empAge} : {customerEntries>Age}"></ObjectAttribute>
+                        <ObjectAttribute  text = "{i18n>empDoj} : {customerEntries>Doj}"></ObjectAttribute>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+    </Panel>
+
+    <Panel 
+        expandable="true"
+        headerText="{i18n>pageTitleSupplier}"
+        class="sapUiResponsiveMargin"
+        width="auto">
+        <content>
+            <List
+                id="supplierList"
+                class="sapUiResponsiveMargin"
+                width="auto"
+                items="{
+                    path : 'supplierData>/Invoices'
+                    }">
+                <items>
+                    <ObjectListItem
+                        title="{i18n>supplierName} : {supplierData>ShipperName}"
+                        type="Navigation"
+                        press=".onPress" >
+                        <ObjectAttribute  text = "{i18n>productName} : {supplierData>ProductName}"></ObjectAttribute>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+    </Panel>
+
+    <FlexBox
+    direction="Column"
+    justifyContent="Center"
+    height="100%"
+    alignItems="Center">
+        <Button type="Emphasized"
+            text="{i18n>availableResources}"
+            press="onPress"
+            icon="sap-icon://pool"
+            iconFirst="true">
+            <layoutData>
+                <FlexItemData growFactor="2" />
+            </layoutData>
+        </Button>
+    </FlexBox>
+    </Page>
+</mvc:View>

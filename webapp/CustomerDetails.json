@@ -1,0 +1,45 @@
+{
+    "Customers": [
+        {
+            "CustomerName": "Ananya",
+            "Age": 32,
+            "Percentage": 87.2,
+            "Project": "Sales Center",
+            "Doj": "2015-04-01",
+            "Status": "Supplier"
+        },
+        {
+            "CustomerName": "Akshata",
+            "Age": 30,
+            "Percentage": 10,
+            "Project": "Quote",
+            "Doj": "2015-02-18",
+            "Status": "Manager"
+        },
+        {
+            "CustomerName": "Casper",
+            "Age": 33,
+            "Percentage": 6.85,
+            "Project": "Siemens",
+            "Doj": "2015-03-02",
+            "Status": "Employee"
+        },
+        {
+            "CustomerName": "Robin",
+            "Age": 40,
+            "Percentage": 10,
+            "Project": "JDquote2",
+            "Doj": "2015-02-18",
+            "Status": "Manager"
+        },
+        {
+            "CustomerName": "Lena",
+            "Age": 21,
+            "Percentage": 6.85,
+            "Project": "P58",
+            "Doj": "2015-03-02",
+            "Status": "Supplier"
+
+        }
+    ]
+}
