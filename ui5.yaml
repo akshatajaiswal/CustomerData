@@ -1,0 +1,20 @@
+specVersion: "4.0"
+metadata:
+  name: cu5.details
+type: application
+framework:
+  name: OpenUI5
+  version: "1.135.0"
+  libraries:
+    - name: sap.m
+    - name: sap.tnt
+    - name: sap.ui.core
+    - name: sap.ui.layout
+    - name: themelib_sap_horizon
+server:
+  customMiddleware:
+  - name: ui5-middleware-simpleproxy
+    afterMiddleware: compression
+    mountPath: /V2
+    configuration:
+      baseUri: "https://services.odata.org/v2"

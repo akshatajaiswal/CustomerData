@@ -1,0 +1,11 @@
+{
+    "name": "cu5.details",
+    "version": "1.0.0",
+    "description": "Customer Details",
+    "scripts": {
+        "start": "ui5 serve -o index.html"
+    },
+    "devDependencies": {
+        "ui5-middleware-simpleproxy": "^3.4.1"
+    }
+}
